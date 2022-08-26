@@ -16,7 +16,11 @@ function deleteFiles {
     if (-not($Path -Or $DateToDelete)) {
         break
     }
-    Get-ChildItem "$Path" -Recurse | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item
+    try {
+        Get-ChildItem "$Path" -Recurse | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item
+    } catch {
+        Throw "Exception:", $_.Exception.Message
+    }
 }
 
 $CurrentDate = Get-Date
