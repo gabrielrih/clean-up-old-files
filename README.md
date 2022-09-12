@@ -7,7 +7,7 @@ Automation to clean old files on a list of folders.
 ```
 
 ## Task Scheduler
-On Windows, you can schedule the execution setting this command:
+On Windows, you can schedule the execution:
 ```
 PowerShell -File C:\automation-scripts\clean.ps1 -Pathes "C:\Users\myUsers\Desktop\temp"
 ```
